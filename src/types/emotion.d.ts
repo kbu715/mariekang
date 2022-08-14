@@ -6,6 +6,11 @@ declare module '@emotion/react' {
       primary: string
       secondary: string
     }
+    mq: {
+      mobile: string
+      tablet: string
+      laptop: string
+    }
   }
 }
 
