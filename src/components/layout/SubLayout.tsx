@@ -34,17 +34,11 @@ const LayoutContainer = styled('div')<LayoutContainerProps>`
       flex-direction: column;
       padding: 1rem;
 
-      .poster {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 50px;
-
-        img {
-          width: 80%;
-          height: auto;
-          object-fit: cover;
-        }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        grid-auto-flow: row dense;
       }
     }
   }

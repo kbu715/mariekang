@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import React from 'react'
 import SubLayout from '../components/layout/SubLayout'
 import ListItem from '../components/ListItem'
+import Poster from '../components/Poster'
 import { NextPageWithLayout } from './_app'
 
 const HomeContainer = styled('div')`
@@ -61,20 +62,9 @@ const Home: NextPageWithLayout = () => {
         </List>
       </div>
       <div className="right__box">
-        <div className="poster">
-          <img src="item-1.jpeg" alt="poster" />
-        </div>
-        <div className="poster">
-          <img src="item-1.jpeg" alt="poster" />
-        </div>
-        <div className="poster">
-          <img src="item-1.jpeg" alt="poster" />
-        </div>
-        <div className="poster">
-          <img src="item-1.jpeg" alt="poster" />
-        </div>
-        <div className="poster">
-          <img src="item-1.jpeg" alt="poster" />
+        <div className="grid">
+          <Poster src="images/work-1.jpeg" desc="my-work" />
+          <Poster src="images/work-2.jpeg" desc="ddd" />
         </div>
       </div>
     </HomeContainer>

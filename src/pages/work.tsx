@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import SubLayout from '../components/layout/SubLayout'
 import ListItem from '../components/ListItem'
+import Poster from '../components/Poster'
 
 const WorkContainer = styled('div')`
   .intro {
@@ -34,14 +35,15 @@ export default function Work() {
         </List>
       </div>
       <div className="right__box">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores accusantium vitae, rerum
-        ut minima eligendi labore sint a, tenetur soluta architecto sequi, fugit facere? Repellendus
-        vel doloremque rerum repudiandae temporibus consequatur harum eius reiciendis molestias
-        nobis ipsum ipsam dolorum asperiores a dolor facere ullam totam nulla magni quaerat itaque
-        quod, hic natus quae. Officiis accusamus tenetur sapiente eum! Hic, et! Veritatis soluta ut
-        cupiditate minima sequi esse tenetur inventore eligendi ipsum corrupti molestias, quaerat
-        saepe nam commodi laborum aliquid debitis? Totam vitae distinctio quasi nostrum sequi eos
-        magnam soluta officia iusto vel? Alias nisi aut itaque iusto dolorum mollitia fuga?
+        <div className="grid">
+          <Poster src="images/work-1.jpeg" desc="work-1" />
+          <Poster src="images/work-2.jpeg" desc="work-1" />
+          <Poster src="images/work-3.jpeg" desc="work-1" />
+          <Poster src="images/work-4.jpeg" desc="work-1" />
+          <Poster src="images/work-5.png" desc="work-1" />
+          <Poster src="images/work-6.jpeg" desc="work-1" />
+          <Poster src="images/work-7.png" desc="work-1" />
+        </div>
       </div>
     </WorkContainer>
   )
