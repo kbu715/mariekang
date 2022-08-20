@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { hoverStyles } from '../styles/shared'
 
-type LayoutProps = {
+export type LayoutProps = {
   children: React.ReactNode
 }
 

@@ -3,14 +3,23 @@ import { ThemeProvider } from '@emotion/react'
 import theme from '../styles/theme'
 import GlobalStyle from '../styles/global'
 import AppLayout from '../components/AppLayout'
+import { ReactElement, ReactNode } from 'react'
+import { NextPage } from 'next'
 
-function MyApp({ Component, pageProps }: AppProps) {
+export type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode
+}
+
+export type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+}
+
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout ?? ((page) => page)
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <AppLayout>
-        <Component {...pageProps} />
-      </AppLayout>
+      <AppLayout>{getLayout(<Component {...pageProps} />)}</AppLayout>
     </ThemeProvider>
   )
 }

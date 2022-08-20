@@ -1,8 +1,10 @@
 import { css } from '@emotion/react'
 
-export const hoverStyles = css`
+const hoverStyles = css`
   &:hover {
     color: rgba(194, 194, 194, 1);
     filter: blur(1px);
   }
 `
+
+export { hoverStyles }

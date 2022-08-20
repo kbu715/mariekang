@@ -1,51 +1,13 @@
 import styled from '@emotion/styled'
-import type { NextPage } from 'next'
+// import type { NextPage } from 'next'
+import React from 'react'
+import SubLayout from '../components/SubLayout'
 import { hoverStyles } from '../styles/shared'
+import { NextPageWithLayout } from './_app'
 
 const HomeContainer = styled('div')`
-  display: flex;
-  h2 {
-    font-size: 1rem;
-    line-height: 1.2;
-    font-weight: 400;
-
-    ${(props) => props.theme.mq.tablet} {
-      font-size: 24px;
-    }
-  }
   .intro {
     margin-bottom: 96px;
-  }
-  .left__box {
-    position: fixed;
-    top: 0;
-    left: 0;
-    margin-top: calc(61px + 50px);
-    padding: 0.5rem;
-    ${(props) => props.theme.mq.tablet} {
-      width: 50%;
-    }
-  }
-  .right__box {
-    display: none;
-    margin-left: calc(50% + 1rem + 0.5rem);
-    ${(props) => props.theme.mq.tablet} {
-      width: 50%;
-      display: flex;
-      flex-direction: column;
-      padding: 1rem;
-
-      .poster {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 50px;
-        img {
-          width: 80%;
-          height: auto;
-        }
-      }
-    }
   }
 `
 
@@ -87,7 +49,7 @@ const List = styled('ul')`
   }
 `
 
-const Home: NextPage = () => {
+const Home: NextPageWithLayout = () => {
   return (
     <HomeContainer>
       <div className="left__box">
@@ -106,7 +68,7 @@ const Home: NextPage = () => {
                 <span>Internship - Designer</span>
               </div>
               <span>
-                <a href="https://www.naver.com" target="_blank">
+                <a href="https://www.naver.com" target="_blank" rel="noreferrer">
                   Naver corp.
                 </a>
               </span>
@@ -128,7 +90,7 @@ const Home: NextPage = () => {
                 <span>Internship - Designer</span>
               </div>
               <span>
-                <a href="https://www.naver.com" target="_blank">
+                <a href="https://www.naver.com" target="_blank" rel="noreferrer">
                   Naver corp.
                 </a>
               </span>
@@ -207,3 +169,7 @@ const Home: NextPage = () => {
 }
 
 export default Home
+
+Home.getLayout = function getLayout(page: React.ReactElement) {
+  return <SubLayout>{page}</SubLayout>
+}
