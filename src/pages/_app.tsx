@@ -2,7 +2,7 @@ import type { AppProps } from 'next/app'
 import { ThemeProvider } from '@emotion/react'
 import theme from '../styles/theme'
 import GlobalStyle from '../styles/global'
-import AppLayout from '../components/AppLayout'
+import AppLayout from '../components/layout/AppLayout'
 import { ReactElement, ReactNode } from 'react'
 import { NextPage } from 'next'
 

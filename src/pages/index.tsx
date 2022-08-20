@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 // import type { NextPage } from 'next'
 import React from 'react'
-import SubLayout from '../components/SubLayout'
+import SubLayout from '../components/layout/SubLayout'
 import { hoverStyles } from '../styles/shared'
 import { NextPageWithLayout } from './_app'
 
