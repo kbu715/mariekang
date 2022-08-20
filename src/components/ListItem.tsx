@@ -5,6 +5,10 @@ import { hoverStyles } from '../styles/shared'
 const StyledListItem = styled('li')`
   border-top: 1px solid #111;
 
+  a {
+    ${hoverStyles}
+  }
+
   div {
     display: flex;
     justify-content: space-between;
@@ -22,10 +26,6 @@ const StyledListItem = styled('li')`
       font-weight: 400;
       color: rgba(0, 0, 0, 1);
 
-      a {
-        ${hoverStyles}
-      }
-
       ${(props) => props.theme.mq.mobile} {
         font-size: 16px;
       }
@@ -41,10 +41,10 @@ type ListItemProps = {
   year: string
   info1: string
   info2: string
-  href: string
+  href?: string
 }
 
-export default function ListItem({ year, info1, info2, href }: ListItemProps) {
+export default function ListItem({ year, info1, info2 }: ListItemProps) {
   return (
     <StyledListItem>
       <Link href={`/work/${info1}`}>
@@ -54,11 +54,7 @@ export default function ListItem({ year, info1, info2, href }: ListItemProps) {
               <span>{year}</span>
               <span>{info1}</span>
             </div>
-            <span>
-              <a href={href} target="_blank" rel="noreferrer">
-                {info2}
-              </a>
-            </span>
+            <span>{info2}</span>
           </div>
         </a>
       </Link>
