@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import Link from 'next/link'
 import { hoverStyles } from '../styles/shared'
 
 const StyledListItem = styled('li')`
@@ -46,17 +47,21 @@ type ListItemProps = {
 export default function ListItem({ year, info1, info2, href }: ListItemProps) {
   return (
     <StyledListItem>
-      <div>
-        <div className="item__left">
-          <span>{year}</span>
-          <span>{info1}</span>
-        </div>
-        <span>
-          <a href={href} target="_blank" rel="noreferrer">
-            {info2}
-          </a>
-        </span>
-      </div>
+      <Link href={`/work/${info1}`}>
+        <a>
+          <div>
+            <div className="item__left">
+              <span>{year}</span>
+              <span>{info1}</span>
+            </div>
+            <span>
+              <a href={href} target="_blank" rel="noreferrer">
+                {info2}
+              </a>
+            </span>
+          </div>
+        </a>
+      </Link>
     </StyledListItem>
   )
 }

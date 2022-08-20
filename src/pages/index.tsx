@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 import Head from 'next/head'
 // import type { NextPage } from 'next'
-import React from 'react'
 import SubLayout from '../components/layout/SubLayout'
 import ListItem from '../components/ListItem'
 import Poster from '../components/Poster'

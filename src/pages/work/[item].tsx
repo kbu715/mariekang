@@ -1,19 +1,22 @@
 import styled from '@emotion/styled'
 import Head from 'next/head'
-import SubLayout from '../components/layout/SubLayout'
-import ListItem from '../components/ListItem'
-import Poster from '../components/Poster'
+import { useRouter } from 'next/router'
+import SubLayout from '../../components/layout/SubLayout'
+import ListItem from '../../components/ListItem'
 
 const List = styled('ul')`
   width: 100%;
   margin-bottom: 50px;
 `
 
-type WorkProps = {
+type WorkItemProps = {
   title?: string
 }
 
-export default function Work({ title }: WorkProps) {
+export default function WorkItem({ title }: WorkItemProps) {
+  const router = useRouter()
+
+  console.log(router.query.item)
   return (
     <div className="container">
       <Head>
@@ -23,7 +26,7 @@ export default function Work({ title }: WorkProps) {
         <List>
           <ListItem
             year="2015"
-            info1="Internship - Designer"
+            info1="Planners by AMAG"
             info2="Naver corp."
             href="https://www.naver.com"
           />
@@ -38,24 +41,16 @@ export default function Work({ title }: WorkProps) {
         </List>
       </div>
       <div className="right__box">
-        <div className="grid">
-          <Poster src="images/work-1.jpeg" desc="work-1" />
-          <Poster src="images/work-2.jpeg" desc="work-1" />
-          <Poster src="images/work-3.jpeg" desc="work-1" />
-          <Poster src="images/work-4.jpeg" desc="work-1" />
-          <Poster src="images/work-5.png" desc="work-1" />
-          <Poster src="images/work-6.jpeg" desc="work-1" />
-          <Poster src="images/work-7.png" desc="work-1" />
-        </div>
+        <h1>{router.query.item}</h1>
       </div>
     </div>
   )
 }
 
-Work.getLayout = function getLayout(page: React.ReactElement) {
+WorkItem.getLayout = function getLayout(page: React.ReactElement) {
   return <SubLayout>{page}</SubLayout>
 }
 
-Work.getInitialProps = () => {
+WorkItem.getInitialProps = () => {
   return { title: 'Work - Marie Kang' }
 }
