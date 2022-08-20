@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 // import type { NextPage } from 'next'
 import React from 'react'
 import SubLayout from '../components/layout/SubLayout'
-import { hoverStyles } from '../styles/shared'
+import ListItem from '../components/ListItem'
 import { NextPageWithLayout } from './_app'
 
 const HomeContainer = styled('div')`
@@ -13,40 +13,6 @@ const HomeContainer = styled('div')`
 
 const List = styled('ul')`
   margin-bottom: 50px;
-  .list__item {
-    border-top: 1px solid #111;
-
-    div {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      .item__left {
-        span:first-of-type {
-          margin-right: 25px;
-        }
-      }
-
-      span {
-        font-size: 12px;
-        line-height: 1.2;
-        font-weight: 400;
-        color: rgba(0, 0, 0, 1);
-
-        a {
-          ${hoverStyles}
-        }
-
-        ${(props) => props.theme.mq.mobile} {
-          font-size: 16px;
-        }
-
-        ${(props) => props.theme.mq.tablet} {
-          font-size: 18px;
-        }
-      }
-    }
-  }
 `
 
 const Home: NextPageWithLayout = () => {
@@ -61,90 +27,37 @@ const Home: NextPageWithLayout = () => {
 
         <h2>Work Experience</h2>
         <List>
-          <li className="list__item">
-            <div>
-              <div className="item__left">
-                <span>2015</span>
-                <span>Internship - Designer</span>
-              </div>
-              <span>
-                <a href="https://www.naver.com" target="_blank" rel="noreferrer">
-                  Naver corp.
-                </a>
-              </span>
-            </div>
-          </li>
-          <li className="list__item">
-            <div>
-              <div className="item__left">
-                <span>2015</span>
-                <span>Graphic Designer</span>
-              </div>
-              <span>Luís Mendonça, Gémeo</span>
-            </div>
-          </li>
-          <li className="list__item">
-            <div>
-              <div className="item__left">
-                <span>2015</span>
-                <span>Internship - Designer</span>
-              </div>
-              <span>
-                <a href="https://www.naver.com" target="_blank" rel="noreferrer">
-                  Naver corp.
-                </a>
-              </span>
-            </div>
-          </li>
-          <li className="list__item">
-            <div>
-              <div className="item__left">
-                <span>2015</span>
-                <span>Graphic Designer</span>
-              </div>
-              <span>Luís Mendonça, Gémeo</span>
-            </div>
-          </li>
+          <ListItem
+            year="2015"
+            info1="Internship - Designer"
+            info2="Naver corp."
+            href="https://www.naver.com"
+          />
+          <ListItem year="2015" info1="Graphic Desiner" info2="Luís Mendonça, Gémeo" href="#" />
+          <ListItem
+            year="2015"
+            info1="Internship - Designer"
+            info2="Naver corp."
+            href="https://www.naver.com"
+          />
+          <ListItem year="2015" info1="Graphic Desiner" info2="Luís Mendonça, Gémeo" href="#" />
         </List>
 
         <h2>Education</h2>
         <List>
-          <li className="list__item">
-            <div>
-              <div className="item__left">
-                <span>2015</span>
-                <span>Internship - Designer</span>
-              </div>
-              <span>Luís Mendonça, Gémeo</span>
-            </div>
-          </li>
-          <li className="list__item">
-            <div>
-              <div className="item__left">
-                <span>2015</span>
-                <span>Graphic Designer</span>
-              </div>
-              <span>Luís Mendonça, Gémeo</span>
-            </div>
-          </li>
-          <li className="list__item">
-            <div>
-              <div className="item__left">
-                <span>2015</span>
-                <span>Internship - Designer</span>
-              </div>
-              <span>Luís Mendonça, Gémeo</span>
-            </div>
-          </li>
-          <li className="list__item">
-            <div>
-              <div className="item__left">
-                <span>2015</span>
-                <span>Graphic Designer</span>
-              </div>
-              <span>Luís Mendonça, Gémeo</span>
-            </div>
-          </li>
+          <ListItem
+            year="2015"
+            info1="Internship - Designer"
+            info2="Naver corp."
+            href="https://www.naver.com"
+          />
+          <ListItem year="2015" info1="Graphic Desiner" info2="Luís Mendonça, Gémeo" href="#" />
+          <ListItem
+            year="2015"
+            info1="Internship - Designer"
+            info2="Naver corp."
+            href="https://www.naver.com"
+          />
         </List>
       </div>
       <div className="right__box">
@@ -171,5 +84,5 @@ const Home: NextPageWithLayout = () => {
 export default Home
 
 Home.getLayout = function getLayout(page: React.ReactElement) {
-  return <SubLayout>{page}</SubLayout>
+  return <SubLayout isWorkPage={false}>{page}</SubLayout>
 }

@@ -1,7 +1,9 @@
 import styled from '@emotion/styled'
-import { LayoutProps } from './AppLayout'
+type LayoutContainerProps = {
+  isWorkPage: boolean
+}
 
-const LayoutContainer = styled('div')`
+const LayoutContainer = styled('div')<LayoutContainerProps>`
   display: flex;
   h2 {
     font-size: 1rem;
@@ -17,14 +19,15 @@ const LayoutContainer = styled('div')`
     top: 0;
     left: 0;
     margin-top: calc(61px + 50px);
-    padding: 0.5rem;
+    padding: 1rem;
+    width: calc(100% - 2rem);
     ${(props) => props.theme.mq.tablet} {
       width: calc(50% - 1rem);
     }
   }
   .right__box {
     display: none;
-    margin-left: calc(50%);
+    margin-left: calc(50% + 1rem);
     ${(props) => props.theme.mq.tablet} {
       width: calc(50% - 2rem);
       display: flex;
@@ -46,7 +49,11 @@ const LayoutContainer = styled('div')`
     }
   }
 `
+type SubLayoutProps = {
+  children: React.ReactNode
+  isWorkPage: boolean
+}
 
-export default function SubLayout({ children }: LayoutProps) {
-  return <LayoutContainer>{children}</LayoutContainer>
+export default function SubLayout({ children, isWorkPage }: SubLayoutProps) {
+  return <LayoutContainer isWorkPage={isWorkPage}>{children}</LayoutContainer>
 }
