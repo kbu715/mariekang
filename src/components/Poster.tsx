@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import Link from 'next/link'
 
 type PostProps = {
   src: string
@@ -11,6 +12,7 @@ const PosterContainer = styled('div')`
     width: 100%;
     height: auto;
     object-fit: cover;
+    cursor: pointer;
   }
 
   h6 {
@@ -26,8 +28,12 @@ const PosterContainer = styled('div')`
 export default function Poster({ src, desc }: PostProps) {
   return (
     <PosterContainer>
-      <img src={src} alt="poster" loading="lazy" />
-      <h6>{desc}</h6>
+      <Link href="#">
+        <a>
+          <img src={src} alt="poster" loading="lazy" />
+          <h6>{desc}</h6>
+        </a>
+      </Link>
     </PosterContainer>
   )
 }

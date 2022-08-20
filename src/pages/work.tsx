@@ -1,21 +1,24 @@
 import styled from '@emotion/styled'
+import Head from 'next/head'
 import SubLayout from '../components/layout/SubLayout'
 import ListItem from '../components/ListItem'
 import Poster from '../components/Poster'
 
-const WorkContainer = styled('div')`
-  .intro {
-    margin-bottom: 96px;
-  }
-`
-
 const List = styled('ul')`
+  width: 100%;
   margin-bottom: 50px;
 `
 
-export default function Work() {
+type WorkProps = {
+  title?: string
+}
+
+export default function Work({ title }: WorkProps) {
   return (
-    <WorkContainer>
+    <div className="container">
+      <Head>
+        <title>{title}</title>
+      </Head>
       <div className="left__box">
         <List>
           <ListItem
@@ -45,10 +48,14 @@ export default function Work() {
           <Poster src="images/work-7.png" desc="work-1" />
         </div>
       </div>
-    </WorkContainer>
+    </div>
   )
 }
 
 Work.getLayout = function getLayout(page: React.ReactElement) {
-  return <SubLayout isWorkPage={true}>{page}</SubLayout>
+  return <SubLayout>{page}</SubLayout>
+}
+
+Work.getInitialProps = () => {
+  return { title: 'Work - Marie Kang' }
 }

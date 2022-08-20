@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import Head from 'next/head'
 // import type { NextPage } from 'next'
 import React from 'react'
 import SubLayout from '../components/layout/SubLayout'
@@ -6,25 +7,31 @@ import ListItem from '../components/ListItem'
 import Poster from '../components/Poster'
 import { NextPageWithLayout } from './_app'
 
-const HomeContainer = styled('div')`
-  .intro {
-    margin-bottom: 96px;
-  }
-`
-
 const List = styled('ul')`
+  width: 100%;
   margin-bottom: 50px;
 `
 
-const Home: NextPageWithLayout = () => {
+const Intro = styled('h2')`
+  margin-bottom: 96px;
+`
+
+type HomeProps = {
+  title?: string
+}
+
+const Home: NextPageWithLayout = ({ title }: HomeProps) => {
   return (
-    <HomeContainer>
+    <div className="container">
+      <Head>
+        <title>{title}</title>
+      </Head>
       <div className="left__box">
-        <h2 className="intro">
+        <Intro>
           About Work Carolina Feijó (Oct 27, 1998) is a graphic designer based in Porto, Portugal.
           Currently working as a freelancer and as Intern at AMAG PUBLISHER and Studio Dobra. For
           collaborations or more information: carolmfeijo@gmail.com
-        </h2>
+        </Intro>
 
         <h2>Work Experience</h2>
         <List>
@@ -65,14 +72,21 @@ const Home: NextPageWithLayout = () => {
         <div className="grid">
           <Poster src="images/work-1.jpeg" desc="my-work" />
           <Poster src="images/work-2.jpeg" desc="ddd" />
+          <Poster src="images/work-3.jpeg" desc="ddd" />
+          <Poster src="images/work-5.png" desc="ddd" />
+          <Poster src="images/work-7.png" desc="ddd" />
         </div>
       </div>
-    </HomeContainer>
+    </div>
   )
 }
 
 export default Home
 
 Home.getLayout = function getLayout(page: React.ReactElement) {
-  return <SubLayout isWorkPage={false}>{page}</SubLayout>
+  return <SubLayout>{page}</SubLayout>
+}
+
+Home.getInitialProps = () => {
+  return { title: 'Marie Kang' }
 }
